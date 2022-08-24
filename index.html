@@ -55,39 +55,6 @@
         </audio>
       </div>
     </footer>
-
-        <script>
-           let scanner = new Instascan.Scanner({ video: document.getElementById('preview'),mirror:false});
-           Instascan.Camera.getCameras().then(function (cameras) {
-            //If a camera is detected
-            if (cameras.length > 0) {
-                //If the user has a rear/back camera
-                if (cameras[1]) {
-                    //use that by default
-                    scanner.start(cameras[1]);
-                } else {
-                    //else use front camera
-                    scanner.start(cameras[0]);
-                }
-            } else {
-                //if no cameras are detected give error
-                console.error('No cameras found.');
-            }
-        }).catch(function (e) {
-            console.error(e);
-        });
-
-           scanner.addListener('scan',function(c){
-            var x = document.getElementById("myAudio");
-            x.play();
-             window.location="resultscan.html?scanresult="+c;
-               //document.getElementById('text').value=c;
-           });
-           //
-           if (localStorage.getItem("userid") == null) {
-              window.location = 'login.html';
-            }
-        </script>
         <script src="js/jquery-1.12.4.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
