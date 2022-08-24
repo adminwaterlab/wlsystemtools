@@ -1,0 +1,26 @@
+{
+  "short_name": "Waterlab Apps",
+  "name": "Waterlab Application",
+  "icons": [
+    {
+      "src": "images/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "scope": ".",
+  "start_url": "welcome.html",
+  "display": "standalone",
+  "theme_color": "#1786de",
+  "background_color": "#137dd1",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": true,
+  "description": "Waterlab Payroll System by Ogie Castro",
+  "dir": "ltr",
+  "lang": "en-US"
+}
