@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <link href="css/sticky-footer.css" rel="stylesheet">
     <link href="fontawesome/css/all.css" rel="stylesheet">
@@ -19,7 +20,7 @@
 
     <link rel="manifest" href="manifest.json" />
     </head>
-    <body>
+    <body style="background-color: #000000;color:#fffff;">
       <!-- Fixed navbar -->
       <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -42,10 +43,15 @@
           <div class="page-header">&nbsp;&nbsp;&nbsp;</div>
           <h3>Waterlab System Tools</h3>
           <p><a href="unlock.html" class="btn btn-default btn-lg btn-block">UNLOCK PRINT</a></p>
-          <p><a href="unlock.html" class="btn btn-default btn-lg btn-block">CRF APPROVAL</a></p>
-          <p><a href="unlock.html" class="btn btn-default btn-lg btn-block">PRINT APPROVAL</a></p>
-          <p><a href="unlock.html" class="btn btn-default btn-lg btn-block">TR OUT</a></p>
+          <p><a href="#" id="crfapproval" class="btn btn-default btn-lg btn-block">CRF APPROVAL</a></p>
+          <p><a href="#" id="printapproval" class="btn btn-default btn-lg btn-block">PRINT APPROVAL</a></p>
+          <p><a href="#" class="btn btn-default btn-lg btn-block">TR OUT</a></p>
         </div>
+        <div id="loading" style="display:none;margin:auto;text-align: center;color:#ffffff;">
+          <p>Processing...</p>
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div id="div1" style="text-align: center;"></div>
         <footer class="footer">
       <div class="container">
         <p class="text-muted" id="fullname"></p>
@@ -56,6 +62,40 @@
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+            $(document).on('click','#crfapproval',function(e) {
+              $('#loading').show();
+              e.preventDefault();
+              var data = $(this).attr('href');
+              $.ajax({
+                  method: 'get',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/api/wlsytemtools.php?crfapproval=ok&',
+                  data: data,
+                  async: true,
+                  cache: false,
+                  success: function (result) {
+                  $('#loading').hide();
+                  $("#div1").html(result);
+                }
+              });
+          });
+            $(document).on('click','#printapproval',function(e) {
+              $('#loading').show();
+              e.preventDefault();
+              var data = $(this).attr('href');
+              $.ajax({
+                  method: 'get',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/api/wlsytemtools.php?printapproval=ok&',
+                  data: data,
+                  async: true,
+                  cache: false,
+                  success: function (result) {
+                  $('#loading').hide();
+                  $("#div1").html(result);
+                }
+              });
+          });
+        </script>
     <script src="js/custom.js"></script>
     </body>
 </html> 
