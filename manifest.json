@@ -1,5 +1,5 @@
 {
-  "short_name": "Waterlab Apps",
+  "short_name": "WL Tools",
   "name": "Waterlab Application",
   "icons": [
     {
@@ -14,13 +14,13 @@
     }
   ],
   "scope": ".",
-  "start_url": "welcome.html",
+  "start_url": "index.html",
   "display": "standalone",
   "theme_color": "#1786de",
-  "background_color": "#137dd1",
+  "background_color": "#1786de",
   "orientation": "portrait-primary",
   "prefer_related_applications": true,
-  "description": "Waterlab Payroll System by Ogie Castro",
+  "description": "Waterlab System Tools V1 by Ogie Castro",
   "dir": "ltr",
   "lang": "en-US"
 }
