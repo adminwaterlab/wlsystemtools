@@ -51,8 +51,12 @@
           <p><a href="#" id="crfapproval" class="btn btn-default btn-lg btn-block">CRF APPROVAL</a></p>
           <p><a href="#" id="printapproval" class="btn btn-default btn-lg btn-block">PRINT APPROVAL</a></p>
           <p><a href="trout.html" class="btn btn-default btn-lg btn-block">TR OUT</a></p>
-          <p><a href="#" class="btn btn-success btn-lg btn-block">Back-Up Waterlab</a></p>
-          <p><a href="#" class="btn btn-success btn-lg btn-block">Back-Up Payroll</a></p>
+          <p><a href="#" id="bkupwaterlab" class="btn btn-success btn-lg btn-block">Back-Up Waterlab</a></p>
+          <p id="resultwaterlabbkup"></p>
+          <p><a href="#" id="bkuppayroll" class="btn btn-success btn-lg btn-block">Back-Up Payroll</a></p>
+          <p id="resultbkuppayroll"></p>
+          <p><a href="#" id="deleteoldfiles" class="btn btn-danger btn-lg btn-block">Delete Old Files</a></p>
+          <p id="resultdeletefiles"></p>
         </div>
         <div id="loading" style="display:none;margin:auto;text-align: center;color:#ffffff;">
           <p>Processing...</p>
@@ -102,6 +106,54 @@
                 }
               });
           });
+            $(document).on('click','#bkupwaterlab',function(e) {
+              $('#loading').show();
+              e.preventDefault();
+              var data = $(this).attr('href');
+              $.ajax({
+                  method: 'get',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/api/wlsytemtools.php?bkupwaterlab=ok&',
+                  data: data,
+                  async: true,
+                  cache: false,
+                  success: function (result) {
+                  $('#loading').hide();
+                  $("#resultwaterlabbkup").html(result);
+                }
+              });
+          });
+            $(document).on('click','#bkuppayroll',function(e) {
+              $('#loading').show();
+              e.preventDefault();
+              var data = $(this).attr('href');
+              $.ajax({
+                  method: 'get',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/api/wlsytemtools.php?bkuppayroll=ok&',
+                  data: data,
+                  async: true,
+                  cache: false,
+                  success: function (result) {
+                  $('#loading').hide();
+                  $("#resultbkuppayroll").html(result);
+                }
+              });
+          })
+            $(document).on('click','#deleteoldfiles',function(e) {
+              $('#loading').show();
+              e.preventDefault();
+              var data = $(this).attr('href');
+              $.ajax({
+                  method: 'get',
+                  url: 'https://unbloody-curlew-0788.dataplicity.io/api/wlsytemtools.php?deleteoldfiles=ok&',
+                  data: data,
+                  async: true,
+                  cache: false,
+                  success: function (result) {
+                  $('#loading').hide();
+                  $("#resultdeletefiles").html(result);
+                }
+              });
+          })
         </script>
     <script src="js/custom.js"></script>
 <script src="js/app.js" async></script>
