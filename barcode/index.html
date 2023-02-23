@@ -62,9 +62,6 @@
           // Handle on success condition with the decoded text or result.
           console.log(`Scan result: ${decodedText}`, decodedResult);
           var barcode = decodedText;
-          var lsa = decodedText;
-          var by = decodedText;
-          var note = decodedText;
           //Retrieve localStorage Data
           var by = localStorage.getItem("by");
           var lsa = localStorage.getItem("lsa");
@@ -72,7 +69,7 @@
           //window.location="resultscan.html?scanresult="+barcode;
           $.ajax({
                 type: 'get',
-                url: 'https://myapps.webphilservices.xyz/scanresult/trout.php?by='+by+'&lsa='+lsa+'&note='+note,
+                url: 'https://myapps.webphilservices.xyz/scanresult/trout.php?text='+barcode+'&by='+by+'&lsa='+lsa+'&note='+note,
                 data: { barcode: barcode },
                 success: function (result) {
                   $('#loading').hide();
