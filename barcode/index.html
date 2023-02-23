@@ -65,10 +65,14 @@
           var lsa = decodedText;
           var by = decodedText;
           var note = decodedText;
+          //Retrieve localStorage Data
+          var by = localStorage.getItem("by");
+          var lsa = localStorage.getItem("lsa");
+          var note = localStorage.getItem("notes");
           //window.location="resultscan.html?scanresult="+barcode;
           $.ajax({
                 type: 'get',
-                url: 'https://myapps.webphilservices.xyz/scanresult/trout.php?by=&lsa=&note=',
+                url: 'https://myapps.webphilservices.xyz/scanresult/trout.php?by='+by+'&lsa='+lsa+'&note='+note,
                 data: { barcode: barcode },
                 success: function (result) {
                   $('#loading').hide();
