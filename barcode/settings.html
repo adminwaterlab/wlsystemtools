@@ -75,11 +75,18 @@
         var note = document.getElementById("note").value;
 
         //Store data
-
         var lsacode = localStorage.setItem("lsa",lsa);
         var byid = localStorage.setItem("by",by);
         var notes = localStorage.setItem("notes",note);
       }
     </script>
+    <script type="text/javascript">
+  window.addEventListener("load", function(){
+    //Retrieve localStorage Data
+        $("#lsa").val(localStorage.getItem("lsa"));
+        $("#by").val(localStorage.getItem("by"));
+        $("#note").val(localStorage.getItem("notes"));
+  });
+</script>
     </body>
 </html> 
