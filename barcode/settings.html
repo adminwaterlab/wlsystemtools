@@ -40,10 +40,22 @@
         <div class="container">
           <div class="page-header">
           &nbsp;&nbsp;&nbsp;      </div>
-      <p class="lead">
-          <div id="reader"></div>
-          <div id="scanned-result"></div>
-      </p>
+          <p>Set here the parameters of GET form.</p>
+          <form>
+            <div class="form-group">
+              <label>by</label>
+              <input type="text" name="by" id="by" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>lsa</label>
+              <input type="text" name="lsa" id="lsa" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>note</label>
+              <textarea class="form-control" name="note" id="note" >***</textarea>
+            </div>
+            <input type="submit" onclick="settings()" name="setparameter" class="btn btn-block btn-success" value="SAVE">
+          </form>
       <div id="div1"></div>
         </div>
         <footer class="footer">
@@ -56,43 +68,18 @@
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../js/ie10-viewport-bug-workaround.js"></script>
-    <script src="../js/html5-qrcode.min.js"></script>
     <script type="text/javascript">
-          function onScanSuccess(decodedText, decodedResult) {
-          // Handle on success condition with the decoded text or result.
-          console.log(`Scan result: ${decodedText}`, decodedResult);
-          var barcode = decodedText;
-          var lsa = decodedText;
-          var by = decodedText;
-          var note = decodedText;
-          //window.location="resultscan.html?scanresult="+barcode;
-          $.ajax({
-                type: 'get',
-                url: 'https://myapps.webphilservices.xyz/scanresult/trout.php?by=&lsa=&note=',
-                data: { barcode: barcode },
-                success: function (result) {
-                  $('#loading').hide();
-                  $("#div1").html(result);
-                }
-              });
-      }
+      function settings(){
+        var lsa = document.getElementById("lsa").value;
+        var by = document.getElementById("by").value;
+        var note = document.getElementById("note").value;
 
-      var html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader", { fps: 10, qrbox: 250 });
-      html5QrcodeScanner.render(onScanSuccess);
-      // This method will trigger user permissions
-      Html5Qrcode.getCameras().then(devices => {
-        /**
-         * devices would be an array of objects of type:
-         * { id: "id", label: "label" }
-         */
-        if (devices && devices.length) {
-          var cameraId = devices[0].id;
-          // .. use this to start scanning.
-        }
-      }).catch(err => {
-        // handle err
-      });
-        </script>
+        //Store data
+
+        var lsacode = localStorage.setItem("lsa",lsa);
+        var byid = localStorage.setItem("by",by);
+        var notes = localStorage.setItem("notes",note);
+      }
+    </script>
     </body>
 </html> 
