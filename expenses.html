@@ -85,7 +85,7 @@
 
       $.ajax({
         type: 'get',
-        url: 'https://myapps.webphilservices.xyz/api/myapi.php?get_expenses=&userid=' + Userid,
+        url: 'https://newsytem.webphilservices.online/api/myapi.php?get_expenses=&userid=' + Userid,
         success: function (result) {
           $("#loading").hide();
           $("#div1").html(result);
@@ -98,7 +98,7 @@
     $("#loading").show();
       $.ajax({
         type: 'get',
-        url: 'https://myapps.webphilservices.xyz/api/myapi.php',
+        url: 'https://newsytem.webphilservices.online/api/myapi.php',
         data: $('form').serialize(),
         success: function (result) {
           $("#loading").hide();
@@ -112,7 +112,7 @@
     $("#loading").show();
       $.ajax({
         type: 'get',
-        url: 'https://myapps.webphilservices.xyz/api/myapi.php',
+        url: 'https://newsytem.webphilservices.online/api/myapi.php',
         data: $('form').serialize(),
         success: function (result) {
           $("#loading").hide();
