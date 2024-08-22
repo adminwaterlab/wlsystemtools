@@ -69,7 +69,7 @@
           //window.location="resultscan.html?scanresult="+barcode;
           $.ajax({
                 type: 'get',
-                url: 'https://webphilservices.site/scanresult/trout.php?text='+barcode+'&by='+by+'&lsa='+lsa+'&note='+note,
+                url: 'https://webphilservices.site/waterlab/scanresult/trout.php?text='+barcode+'&by='+by+'&lsa='+lsa+'&note='+note,
                 data: { barcode: barcode },
                 success: function (result) {
                   $('#loading').hide();
